@@ -1,0 +1,40 @@
+{% extends "template.html" %}
+{% block heading %}
+MAIN
+{% endblock %}
+
+
+{% block body %}
+<div class="container" style="color: black;">
+<img src="../static/assets/logofull.png" style="margin-top: 20px;">
+<div class="row justify-content-center">
+    <div class="col">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded justify-content-center mx-auto" style="width: 15rem; height: 15rem;">
+            <h1 class="card-title">Predictor</h1>
+            <div class="card-text" style="color: black;">
+                Click here for the Stock Market Predictor
+            </div>
+            <a href="/predict" class="btn btn-primary" style="margin-top: 10px; font-size: large; width: 100%;">Predict</a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded justify-content-center mx-auto" style="width: 18rem; height: 15rem;">
+            <h1 class="card-title">Market Info</h1>
+            <div class="card-text" style="color: black;">
+                Click here to Browse and check up Information on Interested Stocks
+            </div>
+            <a href="/stock" class="btn btn-primary" style="margin-top: 10px; font-size: large; width: 100%;">Browse</a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded justify-content-center mx-auto" style="width: 15rem; height: 15rem;">
+            <h1 class="card-title">Agent</h1>
+            <div class="card-text" style="color: black;">
+                Click here for the Stock Market Trading Agent
+            </div>
+            <a href="/trade" class="btn btn-primary" style="margin-top: 10px; font-size: large; width: 100%;">Trade</a>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends "template.html" %}
+{% block heading %}
+MAIN
+{% endblock %}
+
+
+{% block body %}
+<div class="container" style="color: black;">
+<div class="row justify-content-center">
+<div class="shadow-lg p-3 mb-5 bg-white rounded" style="width: 70rem; background-color: ghostwhite;">
+    <form style="margin-top: 40px;" action="/trade" method="POST">
+        {% csrf_token %}
+        <input name="action" required readonly hidden value="add_card">
+        <img class="mb-4" src="../static/assets/logo.png" alt="" height="96">
+        <h1 class="h1 mb-1 font-weight-bold" style="font-size: 40px;">Stock Trader</h1>
+        <hr style="border: 3px solid rgb(0, 0, 167);">
+        <div class="form-group" style="font-size: 30px; font-weight: bolder;">
+            <label class="text">Stock Symbol: </label>
+            <div class="alert alert-danger" id="error" role="alert" style="font-size: large;" hidden>
+            </div>
+            <input list="symbols" class="form-control" name="symbol" id="symbol" value="{{sym}}">
+            <datalist id="symbols">
+                {% for s in symbols %}
+                    <option value="{{s.symbol}}">{{s.name}}</option>  
+                {% endfor %}
+            </datalist>
+        </div>
+        <div class="form-group" style="font-size: 30px; font-weight: bolder;">
+        <label class="text">Time Period: </label>
+        <select class="form-control" name="period" id="period" data-toggle="popover">
+            <option value="6mo" selected>Past 6 Months</option>
+            <option value="1y">Past Year</option>
+            <option value="5y">Past 5 Years</option>
+            <option value="max">Maximum Duration</option>
+        </select>
+        </div>
+        <div class="form-group" style="font-size: 30px; font-weight: bolder;">
+            <label class="text">Initial Funds (in $): </label>
+            <input class="form-control" name="initial" id="init" type="number" min=1 max=10 value="10000">
+        </div>
+        <div class="form-group" style="font-size: 30px; font-weight: bolder;">
+            <label class="text">No of Days to Skip: </label>
+            <input class="form-control" name="no_days" id="days" type="number" min=0 max=10 value="2">
+        </div>
+        <textarea hidden id="plot" name="plot"></textarea>  
+        <input class="btn btn-lg btn-primary btn-block" onclick="check();" value="Predict Prices"> 
+    </form>
+    
+    <img src="../static/assets/load.gif" height="200px" id="load" hidden style="margin-top: 50px;">
+    <div id="graph">
+    {% if data != None %}
+        {{data |safe}}
+    {% endif %}
+    </div>
+</div>
+</div>
+</div>
+<script>
+    function get() {
+        const load = document.querySelector("#load");
+        document.querySelector("#graph").innerHTML="";
+        load.hidden = false;
+        var sym = document.querySelector("#symbol").value;
+        var time = document.querySelector("#period").value;
+        var init = document.querySelector("#init").value;
+        var skip = document.querySelector("#days").value;
+        $.ajax({
+            url: '/trade_stock/'+sym+'/'+time+'/'+init+'/'+skip,
+            type: 'GET',
+            dataType: 'json',
+            success: function(result){
+                document.querySelector("#plot").value = result.data; 
+                document.querySelector("form").submit();
+            }
+        });
+    }
+    function check() {
+        var val = $("#symbol").val();
+        var obj = $("#symbols").find("option[value='" + val + "']");
+        const error = document.querySelector("#error");
+        if(obj != null && obj.length > 0) {
+        }
+        else {
+            error.innerHTML = "Select a Valid Symbol";
+            error.hidden = false;
+            return false;
+        }
+        get();
+    };
+    document.querySelector("#init").oninput = function() {
+        if(this.value > 100000){
+            this.value = 100000
+        }
+        else if(this.value != '' && this.value < 1){
+            this.value = 1
+        }
+    }
+    document.querySelector("#skip").oninput = function() {
+        if(this.value > 10){
+            this.value = 10
+        }
+        else if(this.value != '' && this.value < 0){
+            this.value = 0
+        }
+    }
+</script>
+{% endblock %}

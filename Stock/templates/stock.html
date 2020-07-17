@@ -1,0 +1,92 @@
+{% extends "template.html" %}
+{% block heading %}
+MAIN
+{% endblock %}
+
+
+{% block body %}
+<div class="container" style="color: black;">
+<div class="row justify-content-center">
+<div class="shadow-lg p-3 mb-5 bg-white rounded" style="width: 70rem; background-color: ghostwhite;">
+    <form style="margin-top: 40px;" action="/stock" method="POST" onsubmit="return check();">
+        {% csrf_token %}
+        <input name="action" required readonly hidden value="add_card">
+        <img class="mb-4" src="../static/assets/logo.png" alt="" height="96">
+        <h1 class="h1 mb-1 font-weight-bold" style="font-size: 40px;">Stock Info</h1>
+        <hr style="border: 3px solid rgb(0, 0, 167);">
+        <div class="form-group" style="font-size: 30px; font-weight: bolder;">
+            <label class="text">Stock Symbol: </label>
+            <div class="alert alert-danger" id="error" role="alert" style="font-size: large;" hidden>
+            </div>
+            <input list="symbols" class="form-control" name="symbol" id="symbol" value="{{stock.symbol}}">
+            <datalist id="symbols">
+                {% for s in symbols %}
+                    <option value="{{s.symbol}}">{{s.name}}</option>  
+                {% endfor %}
+            </datalist>
+        </div>
+        <div class="alert alert-danger" id="error" role="alert" style="font-size: large;" hidden>
+        </div>
+        <div class="form-group" style="font-size: 30px; font-weight: bolder;">
+        <label class="text">Time Period: </label>
+        <select class="form-control" name="period" id="period" data-toggle="popover">
+            <option value="1d" selected>Today</option>
+            <option value="5d">Past 5 days</option>
+            <option value="1mo">Past Month</option>
+            <option value="6mo">Past 6 Months</option>
+            <option value="1y">Past Year</option>
+            <option value="5y">Past 5 Years</option>
+            <option value="max">Maximum Duration</option>
+        </select>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Get Data</button>
+    </form>
+    {% if stock != None %}
+    <table class="table table-dark table-bordered" style="width: 30rem; margin: 0 auto; margin-top: 30px; margin-bottom: 30px;">
+        <tr>
+            <th scope="row">Symbol:</th>
+            <td>{{stock.symbol}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Name:</th>
+            <td>{{stock.name}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Close:</th>
+            <td>${{stock.close}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Open:</th>
+            <td>${{stock.open}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Change:</th>
+            <td style="color: {{stock.color}};">{{stock.change}}  ({{stock.pchange}}%)</td>
+        </tr>
+        <tr>
+            <th scope="row">Volume:</th>
+            <td>{{stock.volume}}</td>
+        </tr>
+    </table>
+    {% endif %}
+    {% if data != None %}
+        {{data |safe}}
+    {% endif %}
+</div>
+</div>
+</div>
+<script>
+    function check() {
+        var val = $("#symbol").val();
+        var obj = $("#symbols").find("option[value='" + val + "']");
+        const error = document.querySelector("#error");
+        if(obj != null && obj.length > 0) {
+        }
+        else {
+            error.innerHTML = "Select a Valid Symbol";
+            error.hidden = false;
+            return false;
+        }
+    }
+</script>
+{% endblock %}
