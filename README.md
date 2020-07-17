@@ -39,3 +39,17 @@ First start the django server using the following line,
 ```
 python manage.py runserver
 ```
+### Main Page
+<p align="center">
+<img src="https://github.com/crypto-code/Stock-Market-AI-GUI/blob/master/assets/Main.PNG" align="middle" />  </p>
+
+The main page gives you three options to choose from:
+
+### 1. Stock Info
+<p align="center">
+<img src="https://github.com/crypto-code/Stock-Market-AI-GUI/blob/master/assets/Info.PNG" align="middle" />  </p>
+Just Input the Symbol of the Stock and the Duration for which to get the data and the data is fetched using the yahoo-finance library and graphed using matplotlib.
+<p align="center">
+<img src="https://github.com/crypto-code/Stock-Market-AI-GUI/blob/master/assets/Info-done.png" align="middle" />  </p>
+
+### 2. Prediction
