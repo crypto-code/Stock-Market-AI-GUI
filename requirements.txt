@@ -168,7 +168,7 @@ python-jsonrpc-server @ file:///tmp/build/80754af9/python-jsonrpc-server_1594397
 python-language-server @ file:///opt/concourse/worker/volumes/live/98d10c22-f5b4-4b77-744c-63f5add1063c/volume/python-language-server_1594161914775/work
 pytz==2020.1
 PyWavelets==1.1.1
-PyYAML==5.3.1
+PyYAML==5.4
 pyzmq==19.0.1
 QDarkStyle==2.8.1
 QtAwesome==0.7.2
