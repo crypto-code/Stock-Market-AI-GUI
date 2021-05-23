@@ -225,7 +225,6 @@ wrapt
 wurlitzer
 xlrd
 XlsxWriter
-xlwings
 xlwt
 yapf
 yfinance
