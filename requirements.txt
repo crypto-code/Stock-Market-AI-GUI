@@ -96,7 +96,6 @@ lxml
 Markdown
 MarkupSafe
 matplotlib
-mccabe
 mkl-fft
 mkl-random
 mkl-service
