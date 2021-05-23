@@ -199,9 +199,9 @@ statsmodels
 sympy
 tables
 tblib
-tensorboard==1.15.0
-tensorflow==1.15.0
-tensorflow-estimator==1.15.1
+tensorboard
+tensorflow
+tensorflow-estimator
 termcolor
 terminado
 testpath
