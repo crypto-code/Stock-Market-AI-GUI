@@ -205,7 +205,7 @@ sympy
 tables
 tblib
 tensorboard
-tensorflow==1.15,0
+tensorflow==1.15.0
 tensorflow-estimator==1.15.1
 termcolor
 terminado
