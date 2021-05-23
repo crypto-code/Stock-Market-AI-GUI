@@ -96,9 +96,6 @@ lxml
 Markdown
 MarkupSafe
 matplotlib
-mkl-fft
-mkl-random
-mkl-service
 mock
 more-itertools
 mpld3
