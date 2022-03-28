@@ -1,0 +1,17 @@
+Django==3.1.13
+yfinance
+numpy
+tensorboard==1.15.0
+tensorflow==1.15.0
+tensorflow-estimator==1.15.1
+seaborn==0.10.1
+#pandas @ file:///opt/concourse/worker/volumes/live/18a2b361-ca01-439e-799c-26ae586e114f/volume/pandas_1592841668631/work
+pandas
+pandas-datareader==0.9.0
+matplotlib
+#matplotlib @ file:///opt/concourse/worker/volumes/live/8bf90420-8b2f-40f2-5cf1-001960d57523/volume/matplotlib-base_1592846055555/work
+sklearn
+mpld3
+tqdm
+
+
