@@ -11,7 +11,7 @@ astor==0.8.1
 astropy==4.0.1.post1
 atomicwrites==1.4.0
 attrs==19.3.0
-Babel==2.8.0
+Babel==2.9.1
 backcall==0.2.0
 backports.shutil-get-terminal-size==1.0.0
 beautifulsoup4==4.9.1
