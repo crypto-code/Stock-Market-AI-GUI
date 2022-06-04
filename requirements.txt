@@ -38,7 +38,7 @@ dask @ file:///tmp/build/80754af9/dask-core_1594156306305/work
 decorator==4.4.2
 defusedxml==0.6.0
 distributed
-Django==3.1.13
+Django==3.1.14
 docutils==0.16
 entrypoints==0.3
 et-xmlfile==1.0.1
