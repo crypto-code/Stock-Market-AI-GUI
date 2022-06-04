@@ -214,7 +214,7 @@ tqdm
 traitlets==4.3.3
 typed-ast==1.4.1
 typing-extensions
-ujson==1.35
+ujson==5.2.0
 unicodecsv==0.14.1
 urllib3==1.26.5
 watchdog
