@@ -9,7 +9,7 @@ RUN pip install --upgrade pip
 RUN pip install -r docReq.txt
 
 RUN apt update -y
-RUN apt install -y vim
+RUN apt install -y vim --force-yes
 
 RUN python manage.py migrate 
 
