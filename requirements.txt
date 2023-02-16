@@ -220,7 +220,7 @@ urllib3==1.26.5
 watchdog
 wcwidth
 webencodings==0.5.1
-Werkzeug==1.0.1
+Werkzeug==2.2.3
 widgetsnbextension==3.5.1
 wrapt==1.11.2
 wurlitzer
