@@ -70,7 +70,12 @@ For the trading agent you have to input the Symbol for the Stock, the Period of 
 The closing prices is graphed and the selling and buying days are marked with their respective markers using matplotlib and mpld3. Hover your mouse over the marker to get the date and the action done on that day.
 
 
-
+### 4. Docker usage:
+```
+docker build -t smag:latest . 
+./runOnceDocker.sh 
+python manage runserver
+```
 
 # G00D LUCK
 
